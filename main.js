@@ -1,5 +1,5 @@
 console.log("JS file loaded...");
-
+// listens for a submit on the form submit button, then passes search query to the parse function
 function handleSubmit() {
   $("#parks-form").on("submit", e => {
     e.preventDefault();
@@ -9,7 +9,7 @@ function handleSubmit() {
 }
 
 
-
+// maps over the JSON data and renders a container to include all the data 
 function displayData(parksData) {
   $("#parks-container").html("");
   return parksData.data.map(park => {
@@ -34,6 +34,9 @@ function displayData(parksData) {
   });
 }
 
+//verifies the search query is a valid 2 letter (or series of two letter) state codes. 
+// the parser can solve state codes entered by any non alphabetic character or space
+// then passes the confirmed query to the findNationalParks function
 function parseSearchQuery(searchQuery) {
   if (searchQuery.length === 2) {
     findNationalParks(searchQuery);
@@ -53,6 +56,8 @@ function parseSearchQuery(searchQuery) {
   }
 }
 
+// calls the fetch function using parameters located on the nps.gov API website
+// then passes JSON data to the displayData function 
 function findNationalParks(searchQuery) {
   const limit = $("#search-num").val();
   const apiKey = "HIuGKua2buFDaozBbv8dz8ItSMnT5HOQ3IfEaGkV";
@@ -72,6 +77,7 @@ function findNationalParks(searchQuery) {
     });
 }
 
+// IFFE that begins the handleSubmit event listener on DOM load
 (() => {
   handleSubmit();
 })();
