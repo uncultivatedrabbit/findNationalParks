@@ -8,16 +8,28 @@ function handleSubmit() {
   });
 }
 
+
+
 function displayData(parksData) {
   $("#parks-container").html("");
   return parksData.data.map(park => {
-    console.log(park)
+    const city = park.addresses[0].city;
+    const state = park.addresses[0].stateCode;
+    const address1 = park.addresses[0].line1;
+    const address2 = park.addresses[0].line2;
+    const postalCode = park.addresses[0].postalCode;
     $("#error-logs").html("");
     $("#parks-container").append(`
       <h2>${park.name}</h2>
-      <h3 class="address"></h3>
+      <fieldset class="address">
+      <legend>Address:</legend>
+      <p>${address1}</p>
+      <p>${address2}</p>
+      <p>${city}, ${state} ${postalCode}</p>
+      </fieldset>
       <p>${park.description}</p>
       <a href='${park.url}' target='_blank'>Park Website</a>
+      <hr>
     `);
   });
 }
@@ -45,7 +57,7 @@ function findNationalParks(searchQuery) {
   const limit = $("#search-num").val();
   const apiKey = "HIuGKua2buFDaozBbv8dz8ItSMnT5HOQ3IfEaGkV";
   const url = "https://developer.nps.gov/api/v1/parks";
-  const fetchUrl = `${url}?stateCode=${searchQuery}&limit=${limit}&api_key=${apiKey}`;
+  const fetchUrl = `${url}?stateCode=${searchQuery}&limit=${limit}&api_key=${apiKey}&fields=addresses`;
   fetch(fetchUrl)
     .then(res => {
       if (res.ok) {

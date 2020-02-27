@@ -4,34 +4,48 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
-body{
-  background-image: url('/images/park.jpg');
+body {
+  background-image: url("/images/park.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: top;
 }
 
-h1{
+h1 {
   font-size: 2rem;
 }
-p, form{
+h2{
+  color: #2ed573;
+}
+p,
+form,
+a,
+legend {
   font-size: 1.2rem;
 }
-form, h1{
+form,
+h1 {
   text-align: center;
 }
-a{
+a {
   text-decoration: none;
-  color:#ffa502;
+  color: #ffa502;
+  margin-bottom: 2em;
+  display: block;
 }
 
-.container{
+.container {
   width: 80vw;
   margin: 2em auto;
   padding: 3em;
   background: rgba(47, 53, 66, 0.9);
-  color:#ced6e0;
+  color: #ced6e0;
 }
-
+fieldset {
+  display: inline-block;
+  float: right;
+}
 button {
   cursor: pointer;
 }
