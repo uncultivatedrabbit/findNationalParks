@@ -1,0 +1,45 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-image: url('/images/park.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1{
+  font-size: 2rem;
+}
+p, form{
+  font-size: 1.2rem;
+}
+form, h1{
+  text-align: center;
+}
+a{
+  text-decoration: none;
+  color:#ffa502;
+}
+
+.container{
+  width: 80vw;
+  margin: 2em auto;
+  padding: 3em;
+  background: rgba(47, 53, 66, 0.9);
+  color:#ced6e0;
+}
+
+button {
+  cursor: pointer;
+}
+
+#parks-form * {
+  margin: 5px;
+}
+
+label {
+  display: block;
+}

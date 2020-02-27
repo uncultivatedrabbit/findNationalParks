@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find National Parks</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Find National Parks</h1>
+      <div id="error-logs"></div>
+      <form id="parks-form">
+        <legend>Search by state(s) codes:</legend>
+        <input type="text" name="parks" id="parks" value="ca" />
+        <label for="max">Search park(s) from 1-50 at a time:</label>
+        <input
+          type="number"
+          name="max"
+          id="search-num"
+          value="10"
+          max="50"
+          min="1"
+        />
+        <button type="submit">Feeling Lucky!</button>
+      </form>
+      <section id="parks-container"></section>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>
